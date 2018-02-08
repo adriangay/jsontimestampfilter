@@ -3,7 +3,7 @@
 
 ## Summary
 
-A simple tool for extracting a portion of data from a json stream using ISO 8601 ranges as an input.
+A tool for extracting portions of data from JSON streams using an ISO 8601 range as an input.
 
 This is suitable for filtering typical Kafka or Druid datasets.
 
