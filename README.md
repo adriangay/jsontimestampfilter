@@ -16,7 +16,6 @@ go build -o jtsf jsontimestampfilter.go
 ```
 go test
 ```
-in the top level directory
 
 ## To use
 
