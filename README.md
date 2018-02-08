@@ -7,15 +7,11 @@ A simple tool for extracting a portion of data from a json stream using ISO 8601
 
 ## To build
 
-Run 
-
 ```
 go build -o jtsf jsontimestampfilter.go
 ```
 
 ## To Test
-
-Run
 
 ```
 go test
