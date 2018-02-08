@@ -11,7 +11,7 @@ A simple tool for extracting a portion of data from a json stream using ISO 8601
 go build -o jtsf jsontimestampfilter.go
 ```
 
-## To Test
+## To test
 
 ```
 go test
@@ -21,10 +21,15 @@ go test
 
 The filter takes data from standard input and requires the ISO8601 range as a parameter.
 
-An example date might be
+An example ISO8601 range might be
 
 ```
 "2017-11-29T14:00Z/2017-11-29T22:00Z"
+```
+
+Typical data might consist of a stream with lines like
+```
+{"timestamp":1511290852857,"animal":"rabbit","car":"mustang","fruit":"apple" }
 ```
 
 An example of using the tool would be
