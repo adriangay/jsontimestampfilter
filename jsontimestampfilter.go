@@ -60,8 +60,9 @@ func main() {
 			fmt.Println("Error")
 		}
 
-		fmt.Printf("Startline: %v\n", getTimeStampFromLine(startLine))
-		fmt.Printf("Endline: %v\n", getTimeStampFromLine(endLine))
+		startTimeString := getTimeStampAsISO8601(getTimeStampFromLine(startLine))
+		endTimeString := getTimeStampAsISO8601(getTimeStampFromLine(endLine))
+		fmt.Printf("File time range: \"%v/%v\"\n", startTimeString, endTimeString)
 		fmt.Printf("Total Number of lines: %v\n", lineNumber)
 
 
@@ -81,4 +82,8 @@ func getTimeStampFromLine(jsonInput string) int64 {
 	var msg Msg
 	json.Unmarshal([]byte(jsonInput), &msg)
 	return msg.Timestamp
+}
+
+func getTimeStampAsISO8601(epoch int64) string {
+	return (time.Unix(epoch / 1000, 0).Format(ISO8601))
 }
