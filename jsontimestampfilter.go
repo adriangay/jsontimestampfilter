@@ -25,6 +25,10 @@ func main() {
 	startTime := convertDateToMillis(start)
 	endTime := convertDateToMillis(end)
 
+    lineNumber := 0
+    startLine := ""
+    endLine := ""
+
 	fi, err := os.Stdin.Stat()
 	if err != nil {
 		panic(err)
@@ -35,17 +39,31 @@ func main() {
 	} else {
 
 		scanner := bufio.NewScanner(os.Stdin)
+
 		for scanner.Scan() {
 			line := scanner.Text()
+
+			if (lineNumber == 0 ) {
+				startLine = line
+			}
+
 			ts := getTimeStampFromLine(line)
 			if (ts > startTime) && (ts < endTime) {
 				fmt.Println(line)
 			}
+
+			endLine = line
+			lineNumber++
 		}
 
 		if err := scanner.Err(); err != nil {
 			fmt.Println("Error")
 		}
+
+		fmt.Printf("Startline: %v\n", getTimeStampFromLine(startLine))
+		fmt.Printf("Endline: %v\n", getTimeStampFromLine(endLine))
+		fmt.Printf("Total Number of lines: %v\n", lineNumber)
+
 
 	}
 
