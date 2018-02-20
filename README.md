@@ -38,3 +38,4 @@ An example of using the tool would be
 
 ```
 cat largejsonfile.input | jtsf "2017-11-29T14:00Z/2017-11-29T22:00Z" > filteredjsonfile.output
+
